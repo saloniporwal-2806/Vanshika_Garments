@@ -1,0 +1,23 @@
+/* Custom luxury animations & styling */
+
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(122, 31, 61, 0.25);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(122, 31, 61, 0.45);
+  }
+}
+
+.luxury-glow {
+  animation: pulseGlow 3s infinite ease-in-out;
+}
+
+/* Subtle image hover zoom */
+.hover-zoom-img {
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hover-zoom-img:hover {
+  transform: scale(1.04);
+}
