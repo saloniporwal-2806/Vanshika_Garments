@@ -11,25 +11,25 @@ export default function FaqSection() {
   };
 
   return (
-    <section id="faq" className="py-16 bg-cream-200">
+    <section id="faq" className="py-12 sm:py-16 bg-cream-200">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="text-center mb-12">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-burgundy-100 text-burgundy-800 text-xs font-semibold uppercase tracking-wider mb-3">
-            <HelpCircle className="w-3.5 h-3.5 text-gold-dark" />
+        <div className="text-center mb-8 sm:mb-12">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-burgundy-100 text-burgundy-800 text-xs font-semibold uppercase tracking-wider mb-2 sm:mb-3">
+            <HelpCircle className="w-3.5 h-3.5 text-gold-dark shrink-0" />
             <span>Frequently Asked Questions</span>
           </div>
-          <h2 className="font-serif text-3xl sm:text-4xl font-bold text-burgundy-950">
+          <h2 className="font-serif text-2xl sm:text-4xl font-bold text-burgundy-950">
             Got Questions? We’ve Got Answers
           </h2>
-          <p className="mt-2 text-charcoal-muted text-sm sm:text-base">
-            Everything you need to know about sizing, WhatsApp orders, store visits, and exchanges.
+          <p className="mt-2 text-charcoal-muted text-xs sm:text-base">
+            Everything you need to know about sizing, WhatsApp orders, deliveries, and exchanges.
           </p>
         </div>
 
         {/* Accordion List */}
-        <div className="space-y-3.5">
+        <div className="space-y-3 sm:space-y-3.5">
           {faqs.map((faq, idx) => {
             const isOpen = openIndex === idx;
 
@@ -43,10 +43,10 @@ export default function FaqSection() {
                 <button
                   type="button"
                   onClick={() => toggleFaq(idx)}
-                  className="w-full text-left p-5 sm:p-6 flex items-center justify-between gap-4 focus:outline-none"
+                  className="w-full text-left p-4 sm:p-6 flex items-center justify-between gap-3 focus:outline-none min-h-[52px]"
                   aria-expanded={isOpen}
                 >
-                  <span className={`font-serif text-base sm:text-lg font-bold transition-colors ${
+                  <span className={`font-serif text-sm sm:text-lg font-bold transition-colors leading-snug break-words ${
                     isOpen ? 'text-burgundy-800' : 'text-charcoal'
                   }`}>
                     {faq.question}
@@ -59,7 +59,7 @@ export default function FaqSection() {
                 </button>
 
                 {isOpen && (
-                  <div className="px-5 sm:px-6 pb-5 sm:pb-6 text-xs sm:text-sm text-charcoal-muted leading-relaxed border-t border-beige-200 pt-3 animate-in fade-in duration-200">
+                  <div className="px-4 sm:px-6 pb-4 sm:pb-6 text-xs sm:text-sm text-charcoal-muted leading-relaxed border-t border-beige-200 pt-3 animate-in fade-in duration-200 break-words">
                     {faq.answer}
                   </div>
                 )}
@@ -69,22 +69,22 @@ export default function FaqSection() {
         </div>
 
         {/* Extra Support Box */}
-        <div className="mt-10 p-6 bg-white rounded-2xl border border-beige-300 shadow-sm text-center sm:flex sm:items-center sm:justify-between gap-4">
-          <div className="text-center sm:text-left mb-4 sm:mb-0">
-            <h4 className="font-serif text-base font-bold text-charcoal">
+        <div className="mt-8 sm:mt-10 p-5 sm:p-6 bg-white rounded-2xl border border-beige-300 shadow-sm text-center sm:text-left flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="space-y-1">
+            <h4 className="font-serif text-sm sm:text-base font-bold text-charcoal">
               Have another question or need personalized sizing advice?
             </h4>
-            <p className="text-xs text-charcoal-muted mt-0.5">
-              Our in-store team is available on WhatsApp every day from 10:30 AM to 9:00 PM.
+            <p className="text-xs text-charcoal-muted">
+              Connect directly with our team on WhatsApp for prompt assistance.
             </p>
           </div>
           <a
-            href={getWhatsAppLink("Hello Vanshika Garments, I have a quick question about your clothing collection.")}
+            href={getWhatsAppLink()}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-burgundy-600 hover:bg-burgundy-700 text-white font-semibold text-xs sm:text-sm shadow-sm transition-all"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-burgundy-600 hover:bg-burgundy-700 text-white font-semibold text-xs sm:text-sm shadow-sm transition-all shrink-0 active:bg-burgundy-800"
           >
-            <MessageCircle className="w-4 h-4 text-emerald-300" />
+            <MessageCircle className="w-4 h-4 text-emerald-300 shrink-0" />
             <span>Ask Us on WhatsApp</span>
           </a>
         </div>

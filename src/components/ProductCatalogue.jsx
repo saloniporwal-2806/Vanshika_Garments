@@ -72,44 +72,45 @@ export default function ProductCatalogue({
   };
 
   return (
-    <section id="catalogue" className="py-16 bg-cream-200 scroll-mt-20">
+    <section id="catalogue" className="py-12 sm:py-16 bg-cream-200 scroll-mt-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-10">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-burgundy-100 text-burgundy-800 text-xs font-semibold uppercase tracking-wider mb-3">
-            <Sparkles className="w-3.5 h-3.5 text-gold-dark" />
+        <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-10">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-burgundy-100 text-burgundy-800 text-xs font-semibold uppercase tracking-wider mb-2 sm:mb-3">
+            <Sparkles className="w-3.5 h-3.5 text-gold-dark shrink-0" />
             <span>Handpicked Fashion</span>
           </div>
-          <h2 className="font-serif text-3xl sm:text-4xl font-bold text-burgundy-950">
+          <h2 className="font-serif text-2xl sm:text-4xl font-bold text-burgundy-950">
             Explore Vanshika Garments Catalogue
           </h2>
-          <p className="mt-2 text-charcoal-muted text-sm sm:text-base">
-            Browse through our wide spectrum of elegant ethnic wear, smart casuals, and party attire with instant WhatsApp inquiry.
+          <p className="mt-2 text-charcoal-muted text-xs sm:text-base">
+            Browse through our spectrum of elegant ethnic wear, smart casuals, and party attire with instant WhatsApp inquiry.
           </p>
         </div>
 
         {/* Search Bar & Primary Division Pills */}
         <div className="bg-white rounded-2xl p-4 sm:p-6 border border-beige-300 shadow-card mb-8 space-y-4">
           
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-4 items-center">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-3 sm:gap-4 items-center">
             
             {/* Live Search Input */}
             <div className="md:col-span-6 relative">
-              <Search className="w-5 h-5 absolute left-3.5 top-1/2 -translate-y-1/2 text-charcoal-muted" />
+              <Search className="w-4 h-4 sm:w-5 sm:h-5 absolute left-3.5 top-1/2 -translate-y-1/2 text-charcoal-muted shrink-0" />
               <input
                 ref={searchInputRef}
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Search kurtis, shirts, linen, silk, kurta sets, code..."
-                className="w-full pl-10 pr-10 py-3 rounded-xl bg-cream-100 border border-beige-300 focus:border-burgundy-600 focus:ring-2 focus:ring-burgundy-100 text-charcoal text-sm outline-none transition-all placeholder:text-charcoal-muted/70"
+                placeholder="Search kurtis, shirts, linen, silk, code..."
+                className="w-full pl-9 sm:pl-10 pr-9 sm:pr-10 py-2.5 sm:py-3 rounded-xl bg-cream-100 border border-beige-300 focus:border-burgundy-600 focus:ring-2 focus:ring-burgundy-100 text-charcoal text-xs sm:text-sm outline-none transition-all placeholder:text-charcoal-muted/70"
               />
               {searchQuery && (
                 <button
                   type="button"
                   onClick={() => setSearchQuery('')}
                   className="absolute right-3 top-1/2 -translate-y-1/2 p-1 text-charcoal-muted hover:text-charcoal rounded-full"
+                  aria-label="Clear search"
                 >
                   <X className="w-4 h-4" />
                 </button>
@@ -117,11 +118,11 @@ export default function ProductCatalogue({
             </div>
 
             {/* Main Category Tabs: All, Women & Girls, Men & Boys */}
-            <div className="md:col-span-6 flex flex-wrap sm:flex-nowrap gap-2 justify-start md:justify-end">
+            <div className="md:col-span-6 flex gap-2 justify-start md:justify-end">
               <button
                 type="button"
                 onClick={() => { setSelectedGroup('all'); setSelectedCategory('all'); }}
-                className={`flex-1 sm:flex-initial px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all ${
+                className={`flex-1 sm:flex-initial px-3 sm:px-4 py-2 sm:py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all text-center ${
                   selectedGroup === 'all' && selectedCategory === 'all'
                     ? 'bg-burgundy-600 text-white shadow-sm'
                     : 'bg-cream-100 hover:bg-cream-300 text-charcoal border border-beige-300'
@@ -133,7 +134,7 @@ export default function ProductCatalogue({
               <button
                 type="button"
                 onClick={() => { setSelectedGroup('women'); setSelectedCategory('women'); }}
-                className={`flex-1 sm:flex-initial px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all ${
+                className={`flex-1 sm:flex-initial px-3 sm:px-4 py-2 sm:py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all text-center ${
                   selectedGroup === 'women' || selectedCategory === 'women'
                     ? 'bg-burgundy-600 text-white shadow-sm'
                     : 'bg-cream-100 hover:bg-cream-300 text-charcoal border border-beige-300'
@@ -145,7 +146,7 @@ export default function ProductCatalogue({
               <button
                 type="button"
                 onClick={() => { setSelectedGroup('men'); setSelectedCategory('men'); }}
-                className={`flex-1 sm:flex-initial px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all ${
+                className={`flex-1 sm:flex-initial px-3 sm:px-4 py-2 sm:py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all text-center ${
                   selectedGroup === 'men' || selectedCategory === 'men'
                     ? 'bg-burgundy-600 text-white shadow-sm'
                     : 'bg-cream-100 hover:bg-cream-300 text-charcoal border border-beige-300'
@@ -157,8 +158,8 @@ export default function ProductCatalogue({
 
           </div>
 
-          {/* Quick Sub-Category Pills */}
-          <div className="flex gap-2 overflow-x-auto pb-1 pt-2 border-t border-beige-200">
+          {/* Quick Sub-Category Pills (Touch-friendly Horizontal Scroll) */}
+          <div className="flex gap-2 overflow-x-auto pb-2 pt-1 border-t border-beige-200 scrollbar-thin">
             {quickCategories.map((item) => (
               <button
                 key={item.id}
@@ -181,43 +182,41 @@ export default function ProductCatalogue({
           </div>
 
           {/* Controls Bar: Price Range, Sorting & Active Filters Count */}
-          <div className="flex flex-wrap items-center justify-between gap-3 pt-3 border-t border-beige-200 text-xs sm:text-sm">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 pt-3 border-t border-beige-200 text-xs sm:text-sm">
             
-            <div className="flex items-center gap-3">
-              <span className="font-semibold text-charcoal flex items-center gap-1">
-                <SlidersHorizontal className="w-4 h-4 text-burgundy-700" />
-                <span>Budget:</span>
-              </span>
-              <select
-                value={priceFilter}
-                onChange={(e) => setPriceFilter(e.target.value)}
-                className="bg-cream-100 border border-beige-300 text-charcoal rounded-lg px-2.5 py-1.5 text-xs outline-none focus:border-burgundy-600"
-              >
-                <option value="all">Any Price</option>
-                <option value="under-1000">Under ₹1,000</option>
-                <option value="1000-2000">₹1,000 - ₹2,000</option>
-                <option value="above-2000">Above ₹2,000</option>
-              </select>
+            <div className="flex flex-wrap items-center gap-2.5 sm:gap-4">
+              <div className="flex items-center gap-1.5">
+                <SlidersHorizontal className="w-3.5 h-3.5 text-burgundy-700 shrink-0" />
+                <span className="font-semibold text-charcoal text-xs">Budget:</span>
+                <select
+                  value={priceFilter}
+                  onChange={(e) => setPriceFilter(e.target.value)}
+                  className="bg-cream-100 border border-beige-300 text-charcoal rounded-lg px-2 py-1 text-xs outline-none focus:border-burgundy-600"
+                >
+                  <option value="all">Any Price</option>
+                  <option value="under-1000">Under ₹1,000</option>
+                  <option value="1000-2000">₹1,000 - ₹2,000</option>
+                  <option value="above-2000">Above ₹2,000</option>
+                </select>
+              </div>
+
+              <div className="flex items-center gap-1.5">
+                <ArrowUpDown className="w-3.5 h-3.5 text-burgundy-700 shrink-0" />
+                <span className="font-semibold text-charcoal text-xs">Sort:</span>
+                <select
+                  value={sortBy}
+                  onChange={(e) => setSortBy(e.target.value)}
+                  className="bg-cream-100 border border-beige-300 text-charcoal rounded-lg px-2 py-1 text-xs outline-none focus:border-burgundy-600"
+                >
+                  <option value="featured">Featured Picks</option>
+                  <option value="price-low">Price: Low to High</option>
+                  <option value="price-high">Price: High to Low</option>
+                  <option value="rating">Highest Rated</option>
+                </select>
+              </div>
             </div>
 
-            <div className="flex items-center gap-3">
-              <span className="font-semibold text-charcoal flex items-center gap-1">
-                <ArrowUpDown className="w-4 h-4 text-burgundy-700" />
-                <span>Sort By:</span>
-              </span>
-              <select
-                value={sortBy}
-                onChange={(e) => setSortBy(e.target.value)}
-                className="bg-cream-100 border border-beige-300 text-charcoal rounded-lg px-2.5 py-1.5 text-xs outline-none focus:border-burgundy-600"
-              >
-                <option value="featured">Featured Picks</option>
-                <option value="price-low">Price: Low to High</option>
-                <option value="price-high">Price: High to Low</option>
-                <option value="rating">Highest Rated</option>
-              </select>
-            </div>
-
-            <div className="text-xs text-charcoal-muted">
+            <div className="text-xs text-charcoal-muted self-start sm:self-auto">
               Showing <span className="font-bold text-burgundy-900">{filteredProducts.length}</span> items
             </div>
 
@@ -227,7 +226,7 @@ export default function ProductCatalogue({
 
         {/* Product Cards Grid */}
         {filteredProducts.length > 0 ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
             {filteredProducts.map((product) => (
               <ProductCard
                 key={product.id}
@@ -238,10 +237,10 @@ export default function ProductCatalogue({
           </div>
         ) : (
           /* Empty State */
-          <div className="bg-white rounded-2xl border border-beige-300 p-12 text-center max-w-lg mx-auto shadow-sm space-y-4">
+          <div className="bg-white rounded-2xl border border-beige-300 p-8 sm:p-12 text-center max-w-lg mx-auto shadow-sm space-y-4">
             <AlertCircle className="w-12 h-12 text-burgundy-400 mx-auto" />
-            <h3 className="font-serif text-xl font-bold text-charcoal">No Matching Outfits Found</h3>
-            <p className="text-sm text-charcoal-muted">
+            <h3 className="font-serif text-lg sm:text-xl font-bold text-charcoal">No Matching Outfits Found</h3>
+            <p className="text-xs sm:text-sm text-charcoal-muted">
               We couldn't find items matching your current search or filter criteria. Try resetting filters or searching for terms like "kurta", "shirt", or "cotton".
             </p>
             <button
